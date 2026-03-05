@@ -91,7 +91,7 @@ impl DecisionMaker {
         let bank_ticks_per_slot = bank.ticks_per_slot();
         let start_tick = max_tick_height - bank_ticks_per_slot;
         let ticks_into_slot = current_tick_height.saturating_sub(start_tick);
-        let delegation_period_length = bank_ticks_per_slot * 15 / 16;
+        let delegation_period_length = bank_ticks_per_slot * 7 / 8;
         let in_delegation_period = ticks_into_slot < delegation_period_length;
 
         debug!("maybe_consume current_tick_height {current_tick_height} max_tick_height {max_tick_height} bank_ticks_per_slot {bank_ticks_per_slot} start_tick {start_tick} ticks_into_slot {ticks_into_slot} delegation_period_length {delegation_period_length} in_delegation_period {in_delegation_period}");
